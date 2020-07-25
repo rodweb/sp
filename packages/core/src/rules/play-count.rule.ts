@@ -1,5 +1,7 @@
-import { Comparison, genericNumberRule } from './generic/generic-number.rule'
+import { Comparison, numberMatcher } from './generic/number.matcher'
 import { Rule } from '../rule'
 
-export const playCountRule = (comparison: Comparison, reference: number): Rule =>
-  genericNumberRule(comparison, reference, (track) => track.playCount)
+type Config = { comparison: Comparison; amount: number }
+
+export const playCountRule: Rule<Config> = (config) =>
+  numberMatcher(config.comparison, config.amount, (track) => track.playCount)

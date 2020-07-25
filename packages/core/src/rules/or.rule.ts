@@ -1,5 +1,5 @@
-import { Rule } from '../rule'
+import { Matcher, Rule } from '../rule'
 
-export const or = (...rules: Rule[]): Rule => ({
-  match: (track) => rules.some((rule) => rule.match(track)),
+export const or: Rule = (...matchers: Matcher[]) => ({
+  match: (track) => matchers.some((matcher) => matcher.match(track)),
 })

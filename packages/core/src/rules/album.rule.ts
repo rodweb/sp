@@ -1,5 +1,6 @@
 import { Rule } from '../rule'
-import { Comparison, genericStringRule } from './generic/generic-string.rule'
+import { Comparison, stringMatcher } from './generic/string.matcher'
 
-export const albumRule = (comparison: Comparison, reference: string): Rule =>
-  genericStringRule(comparison, reference, (track) => track.album)
+type Config = { comparison: Comparison; text: string }
+export const albumRule: Rule<Config> = (config) =>
+  stringMatcher(config.comparison, config.text, (track) => track.album)

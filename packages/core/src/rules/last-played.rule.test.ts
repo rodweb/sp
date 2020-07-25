@@ -1,7 +1,7 @@
 import { mock } from '../mock'
 import { Track } from '../track'
 import { lastPlayedRule } from './last-played.rule'
-import { Comparison, Reference } from './generic/generic-date.rule'
+import { Comparison, Unit } from './generic/date.matcher'
 
 const d = {
   januaryFirst: new Date(2020, 0, 1),
@@ -11,37 +11,43 @@ const d = {
   aprilFirst: new Date(2020, 3, 1),
 }
 
+const config = (comparison: Comparison, amount: number, unit: Unit) => ({
+  comparison,
+  amount,
+  unit,
+})
+
 test('Last: should match if played in last x days', () => {
   const track = mock<Track>({ lastPlayed: d.januaryFirst })
-  const getCurrentDate = () => d.januaryThird
-  const rule = lastPlayedRule(Comparison.Last, 2, Reference.Days, getCurrentDate)
+  const now = () => d.januaryThird
+  const rule = lastPlayedRule(config(Comparison.Last, 2, Unit.Days), now)
   expect(rule.match(track)).toBeTruthy()
 })
 
 test('Last: should match if played in last x weeks', () => {
   const track = mock<Track>({ lastPlayed: d.januaryFirst })
-  const getCurrentDate = () => d.januaryFourteenth
-  const rule = lastPlayedRule(Comparison.Last, 2, Reference.Weeks, getCurrentDate)
+  const now = () => d.januaryFourteenth
+  const rule = lastPlayedRule(config(Comparison.Last, 2, Unit.Weeks), now)
   expect(rule.match(track)).toBeTruthy()
 })
 
 test('Last: should match if played in last x months', () => {
   const track = mock<Track>({ lastPlayed: d.januaryFirst })
-  const getCurrentDate = () => d.februaryFirst
-  const rule = lastPlayedRule(Comparison.Last, 1, Reference.Months, getCurrentDate)
+  const now = () => d.februaryFirst
+  const rule = lastPlayedRule(config(Comparison.Last, 1, Unit.Months), now)
   expect(rule.match(track)).toBeTruthy()
 })
 
 test('Last: should match if played in last x years', () => {
   const track = mock<Track>({ lastPlayed: d.januaryFirst })
-  const getCurrentDate = () => new Date(2023, 0, 1)
-  const rule = lastPlayedRule(Comparison.Last, 3, Reference.Years, getCurrentDate)
+  const now = () => new Date(2023, 0, 1)
+  const rule = lastPlayedRule(config(Comparison.Last, 3, Unit.Years), now)
   expect(rule.match(track)).toBeTruthy()
 })
 
 test('Last: should not match if not played in last x years', () => {
   const track = mock<Track>({ lastPlayed: d.januaryFirst })
-  const getCurrentDate = () => new Date(2023, 0, 2)
-  const rule = lastPlayedRule(Comparison.Last, 3, Reference.Years, getCurrentDate)
+  const now = () => new Date(2023, 0, 2)
+  const rule = lastPlayedRule(config(Comparison.Last, 3, Unit.Years), now)
   expect(rule.match(track)).toBeFalsy()
 })

@@ -1,5 +1,5 @@
-import { Rule } from '../rule'
+import { Matcher, Rule } from '../rule'
 
-export const and = (...rules: Rule[]): Rule => ({
-  match: (track) => rules.every((rule) => rule.match(track)),
+export const and: Rule = (...matchers: Matcher[]) => ({
+  match: (track) => matchers.every((matcher) => matcher.match(track)),
 })

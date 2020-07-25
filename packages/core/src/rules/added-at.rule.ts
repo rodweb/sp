@@ -1,8 +1,8 @@
-import { Comparison, genericDateRule, Reference } from './generic/generic-date.rule'
+import { Comparison, dateMatcher, Unit } from './generic/date.matcher'
+import { Rule } from '../rule'
 
-export const addedAtRule = (
-  comparison: Comparison,
-  amount: number,
-  reference: Reference,
-  getDate?: () => Date,
-) => genericDateRule(comparison, amount, reference, (track) => track.addedAt, getDate)
+type Config = { comparison: Comparison; amount: number; unit: Unit }
+type Now = () => Date
+
+export const addedAtRule: Rule<Config, Now> = (config, now) =>
+  dateMatcher(config.comparison, config.amount, config.unit, (track) => track.addedAt, now)

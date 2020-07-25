@@ -1,8 +1,8 @@
-import { genericDateRule, Comparison, Reference } from './generic/generic-date.rule'
+import { dateMatcher, Comparison, Unit } from './generic/date.matcher'
+import { Rule } from '../rule'
 
-export const lastPlayedRule = (
-  comparison: Comparison,
-  amount: number,
-  reference: Reference,
-  getCurrentDate?: () => Date,
-) => genericDateRule(comparison, amount, reference, (track) => track.lastPlayed, getCurrentDate)
+type Config = { comparison: Comparison; amount: number; unit: Unit }
+type Now = () => Date
+
+export const lastPlayedRule: Rule<Config, Now> = (c, now) =>
+  dateMatcher(c.comparison, c.amount, c.unit, (track) => track.lastPlayed, now)

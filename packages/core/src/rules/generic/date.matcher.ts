@@ -1,23 +1,23 @@
 import { sub } from 'date-fns'
 import { Maybe } from '../../maybe'
 import { Track } from '../../track'
-import { Rule } from '../../rule'
+import { Matcher } from '../../rule'
 
-export const genericDateRule = (
+export const dateMatcher = (
   comparison: Comparison,
-  amount: number,
-  reference: Reference,
+  reference: number,
+  unit: Unit,
   getValue: (track: Track) => Maybe<Date>,
   getCurrentDate: () => Date = () => new Date(),
-): Rule => ({
-  match: (track) => comparators[comparison](getCurrentDate(), reference, amount, getValue(track)),
+): Matcher => ({
+  match: (track) => comparators[comparison](getCurrentDate(), unit, reference, getValue(track)),
 })
 
 export enum Comparison {
   Last = 'last',
 }
 
-export enum Reference {
+export enum Unit {
   Days = 'days',
   Months = 'months',
   Weeks = 'weeks',
@@ -25,7 +25,7 @@ export enum Reference {
 }
 
 interface Comparator {
-  (currentDate: Date, reference: Reference, amount: number, value?: Maybe<Date>): boolean
+  (currentDate: Date, unit: Unit, amount: number, value?: Maybe<Date>): boolean
 }
 
 const comparators: Record<Comparison, Comparator> = {

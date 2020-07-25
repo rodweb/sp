@@ -1,12 +1,12 @@
 import { Maybe } from '../../maybe'
 import { Track } from '../../track'
-import { Rule } from '../../rule'
+import { Matcher } from '../../rule'
 
-export const genericStringRule = (
+export const stringMatcher = (
   comparison: Comparison,
   reference: string,
   getValue: (track: Track) => Maybe<string>,
-): Rule => ({
+): Matcher => ({
   match: (track) => comparators[comparison](reference, getValue(track)),
 })
 
