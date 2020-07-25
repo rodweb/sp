@@ -1,6 +1,10 @@
 {
   "name": "root",
   "private": true,
+  "scripts": {
+    "build": "lerna run build",
+    "test": "lerna run test"
+  },
   "devDependencies": {
     "@types/jest": "^26.0.7",
     "@types/node": "^14.0.26",
