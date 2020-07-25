@@ -27,5 +27,8 @@
   "bugs": {
     "url": "https://github.com/rodweb/sp/issues"
   },
-  "homepage": "https://github.com/rodweb/sp#readme"
+  "homepage": "https://github.com/rodweb/sp#readme",
+  "dependencies": {
+    "date-fns": "^2.15.0"
+  }
 }
