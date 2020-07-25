@@ -1,5 +1,5 @@
 import { mock } from '../mock'
-import { Comparison } from './generic/string.matcher'
+import { Comparison } from './matchers/string.matcher'
 import { artistRule } from './artist.rule'
 import { albumRule } from './album.rule'
 import { and } from './and.rule'

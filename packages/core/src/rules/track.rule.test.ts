@@ -1,7 +1,7 @@
 import { mock } from '../mock'
 import { Track } from '../track'
 import { trackRule } from './track.rule'
-import { Comparison } from './generic/string.matcher'
+import { Comparison } from './matchers/string.matcher'
 
 const config = (comparison: Comparison, text: string) => ({ comparison, text })
 

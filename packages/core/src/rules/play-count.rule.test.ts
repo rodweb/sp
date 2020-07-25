@@ -1,7 +1,7 @@
 import { mock } from '../mock'
 import { Track } from '../track'
 import { playCountRule } from './play-count.rule'
-import { Comparison } from './generic/number.matcher'
+import { Comparison } from './matchers/number.matcher'
 
 test('LowerThan: should match lower values', () => {
   const track = mock<Track>({ playCount: 0 })

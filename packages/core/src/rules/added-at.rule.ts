@@ -1,4 +1,4 @@
-import { Comparison, dateMatcher, Unit } from './generic/date.matcher'
+import { Comparison, dateMatcher, Unit } from './matchers/date.matcher'
 import { Rule } from '../rule'
 
 type Config = { comparison: Comparison; amount: number; unit: Unit }

@@ -1,7 +1,7 @@
 import { mock } from '../mock'
 import { Track } from '../track'
 import { addedAtRule } from './added-at.rule'
-import { Comparison, Unit } from './generic/date.matcher'
+import { Comparison, Unit } from './matchers/date.matcher'
 
 const d = {
   januaryFirst: new Date(2020, 0, 1),
