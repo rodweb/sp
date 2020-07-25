@@ -1,3 +1,1 @@
-export class HttpClient {
-
-}
+export class HttpClient {}

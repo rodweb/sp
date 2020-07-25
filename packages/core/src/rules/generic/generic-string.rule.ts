@@ -5,7 +5,7 @@ import { Rule } from '../../rule'
 export const genericStringRule = (
   comparison: Comparison,
   reference: string,
-  getValue: (track: Track) => Maybe<string>
+  getValue: (track: Track) => Maybe<string>,
 ): Rule => ({
   match: (track) => comparators[comparison](reference, getValue(track)),
 })

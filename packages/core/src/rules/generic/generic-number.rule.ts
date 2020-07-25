@@ -5,7 +5,7 @@ import { Rule } from '../../rule'
 export const genericNumberRule = (
   comparison: Comparison,
   reference: number,
-  getValue: (track: Track) => Maybe<number>
+  getValue: (track: Track) => Maybe<number>,
 ): Rule => ({
   match: (track) => comparators[comparison](reference, getValue(track)),
 })
