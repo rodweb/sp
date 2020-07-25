@@ -3,5 +3,6 @@ export interface Track {
   album: string
   artist: string
   playCount: number
+  addedAt: Date
   lastPlayed?: Date
 }
