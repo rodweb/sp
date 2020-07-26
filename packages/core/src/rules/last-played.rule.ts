@@ -1,5 +1,5 @@
-import { dateMatcher, Comparison, Unit } from './matchers/date.matcher'
 import { Rule } from '../rule'
+import { Comparison, dateMatcher, Unit } from './matchers/date.matcher'
 
 type Config = { comparison: Comparison; amount: number; unit: Unit }
 type Now = () => Date

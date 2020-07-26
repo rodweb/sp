@@ -1,7 +1,7 @@
 import { mock } from '../mock'
+import { Track } from '../track'
 import { albumRule } from './album.rule'
 import { Comparison } from './matchers/string.matcher'
-import { Track } from '../track'
 
 const config = (comparison: Comparison, text: string) => ({ comparison, text })
 

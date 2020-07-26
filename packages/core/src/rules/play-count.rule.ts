@@ -1,5 +1,5 @@
-import { Comparison, numberMatcher } from './matchers/number.matcher'
 import { Rule } from '../rule'
+import { Comparison, numberMatcher } from './matchers/number.matcher'
 
 type Config = { comparison: Comparison; amount: number }
 

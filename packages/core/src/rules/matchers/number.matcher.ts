@@ -1,6 +1,6 @@
 import { Maybe } from '../../maybe'
-import { Track } from '../../track'
 import { Matcher } from '../../rule'
+import { Track } from '../../track'
 
 export const numberMatcher = (
   comparison: Comparison,
