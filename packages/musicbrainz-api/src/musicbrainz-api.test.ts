@@ -7,7 +7,12 @@ const BASE_OAUTH_URL = 'https://musicbrainz.org/oauth2/'
 
 test('getUserInfo: should return user info', async () => {
   const accessKey = 'any'
-  const api = musicbrainzApi(accessKey)
+  const api = musicbrainzApi({
+    accessKey,
+    appName: 'app',
+    appVersion: '1.0',
+    appContactInfo: 'My Name <my@email.com>',
+  })
   const mockedResponse: UserInfo = {
     profile: '',
     email: 'some@email.com',
