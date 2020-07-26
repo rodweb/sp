@@ -1,7 +1,7 @@
 {
   "name": "@sp/musicbrainz-api",
   "version": "0.0.0",
-  "description": "Now I’m the model of a modern major general / The venerated Virginian veteran whose men are all / Lining up, to put me up on a pedestal / Writin’ letters to relatives / Embellishin’ my elegance and eloquence / But the elephant is in the room / The truth is in ya face when ya hear the British cannons go / BOOM",
+  "description": "Musicbrainz Client API",
   "keywords": [],
   "author": "Rodrigo Campos <rod.apd@gmail.com>",
   "license": "ISC",
@@ -27,5 +27,8 @@
   "bugs": {
     "url": "https://github.com/rodweb/sp/issues"
   },
-  "homepage": "https://github.com/rodweb/sp#readme"
+  "homepage": "https://github.com/rodweb/sp#readme",
+  "dependencies": {
+    "@sp/http-client": "^0.0.0"
+  }
 }
