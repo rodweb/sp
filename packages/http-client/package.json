@@ -27,5 +27,11 @@
   "bugs": {
     "url": "https://github.com/rodweb/sp/issues"
   },
-  "homepage": "https://github.com/rodweb/sp#readme"
+  "homepage": "https://github.com/rodweb/sp#readme",
+  "dependencies": {
+    "node-fetch": "^2.6.0"
+  },
+  "devDependencies": {
+    "@types/node-fetch": "^2.5.7"
+  }
 }
