@@ -1,7 +1,7 @@
 import fetch from 'node-fetch'
 import querystring from 'querystring'
 
-type Opts = { baseUrl: string; accessKey?: string }
+type Opts = { baseUrl: string; accessKey?: string; userAgent?: string }
 export interface HttpClient {
   (opts: Opts): {
     get<T>(path: string, opts?: Partial<{ qs: any }>): Promise<T>
@@ -23,8 +23,7 @@ const buildUrl = ({ baseUrl, path, qs }: Url) => {
   return url
 }
 
-const buildHeaders = ({ accessKey }: Partial<Opts>) => {
-  const headers = {}
-  if (accessKey) Object.assign(headers, { Authorization: `Bearer ${accessKey}` })
-  return headers
-}
+const buildHeaders = ({ accessKey, userAgent }: Partial<Opts>) => ({
+  ...(accessKey && { Authorization: `Bearer ${accessKey}` }),
+  ...(userAgent && { 'User-Agent': userAgent }),
+})
