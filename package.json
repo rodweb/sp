@@ -6,7 +6,7 @@
     "build": "lerna run build",
     "lint": "eslint \"**/{src,test}/**/*.ts\" --fix",
     "start": "lerna run start --scope=@sp/api",
-    "test": "lerna run test"
+    "test": "lerna run --parallel test"
   },
   "devDependencies": {
     "@commitlint/cli": "^9.1.1",

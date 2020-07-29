@@ -3,6 +3,8 @@
   <component name="NewModuleRootManager">
     <content url="file://$MODULE_DIR$">
       <excludeFolder url="file://$MODULE_DIR$/.tmp" />
+      <excludeFolder url="file://$MODULE_DIR$/packages/api/lib" />
+      <excludeFolder url="file://$MODULE_DIR$/packages/cli/lib" />
       <excludeFolder url="file://$MODULE_DIR$/packages/core/lib" />
       <excludeFolder url="file://$MODULE_DIR$/packages/http-client/lib" />
       <excludeFolder url="file://$MODULE_DIR$/packages/lastfm-api/lib" />

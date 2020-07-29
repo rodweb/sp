@@ -1,10 +1,11 @@
 import dotenv from 'dotenv'
 dotenv.config()
 
-const asString = (key: string) => process.env[key] || ''
-const asNumber = (key: string) => Number(asString(key)) || 0
+const asString = (key: string): string => process.env[key] || ''
+const asNumber = (key: string): number => parseInt(asString(key), 10) || 0
 
-export const env = {
+// eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
+const environmentVariables = {
   api: {
     port: asNumber('API_PORT'),
   },
@@ -38,4 +39,5 @@ export const env = {
     redirectUrl: asString('MUSICBRAINZ_REDIRECT_URL'),
   },
 }
-export type EnvironmentVariables = typeof env
+export type EnvironmentVariables = typeof environmentVariables
+export default environmentVariables
