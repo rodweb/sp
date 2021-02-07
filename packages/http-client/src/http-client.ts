@@ -9,10 +9,11 @@ export interface HttpClient {
 }
 
 export const httpClient: HttpClient = ({ baseUrl, accessKey }) => ({
-  get(path, { qs } = {}) {
+  async get(path, { qs } = {}) {
     const url = buildUrl({ baseUrl, path, qs })
     const headers = buildHeaders({ accessKey })
-    return fetch(url, { headers }).then((response) => response.json())
+    const response = await fetch(url, { headers })
+    return await response.json()
   },
 })
 

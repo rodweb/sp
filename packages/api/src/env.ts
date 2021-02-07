@@ -40,4 +40,4 @@ const environmentVariables = {
   },
 }
 export type EnvironmentVariables = typeof environmentVariables
-export default environmentVariables
+export default () => environmentVariables
